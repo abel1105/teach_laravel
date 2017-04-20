@@ -1,6 +1,7 @@
 <?php
 
 
+use App\Teach\User\Constant\RoleConstant;
 use App\Teach\User\Entity\Permission;
 use App\Teach\User\Entity\Role;
 use App\Teach\User\Entity\User;
@@ -58,21 +59,21 @@ class UsersTableSeeder extends \Illuminate\Database\Seeder
     protected function addRole()
     {
         $Role = new Role();
-        $Role->name = 'admin';
+        $Role->name = RoleConstant::ADMIN_ROLE_NAME;
         $Role->display_name = '管理員';
         $Role->description = '系統admin';
         $Role->save();
         $this->AdminRole = $Role;
 
         $Role = new Role();
-        $Role->name = 'author';
+        $Role->name = RoleConstant::AUTHOR_ROLE_NAME;
         $Role->display_name = '作者';
         $Role->description = '作者';
         $Role->save();
         $this->AuthorRole = $Role;
 
         $Role = new Role();
-        $Role->name = 'editor';
+        $Role->name = RoleConstant::EDITOR_ROLE_NAME;
         $Role->display_name = '編輯';
         $Role->description = '編輯';
         $Role->save();
