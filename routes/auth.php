@@ -4,7 +4,7 @@
 use App\Teach\User\Constant\PermissionConstant;
 use App\Teach\User\Constant\RoleConstant;
 
-Route::get('/home', 'HomeController@index');
+Route::get('/home', 'HomeController@index')->name('dashboard');
 
 
 // https://laravel.com/docs/master/controllers#resource-controllers
