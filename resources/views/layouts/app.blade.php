@@ -38,6 +38,10 @@
                     <a class="navbar-brand" href="{{ url('/') }}">
                         {{ config('app.name', 'Laravel') }}
                     </a>
+
+                    <a class="navbar-brand" href="{{ route('articles:index') }}" style="margin-left: 20px;">
+                        Articles
+                    </a>
                 </div>
 
                 <div class="collapse navbar-collapse" id="app-navbar-collapse">
