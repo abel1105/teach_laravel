@@ -1,6 +1,7 @@
 <?php
 
 
+use App\Teach\User\Constant\PermissionConstant;
 use App\Teach\User\Constant\RoleConstant;
 use App\Teach\User\Entity\Permission;
 use App\Teach\User\Entity\Role;
@@ -83,35 +84,35 @@ class UsersTableSeeder extends \Illuminate\Database\Seeder
     protected function addPermission()
     {
         $Permission = new Permission();
-        $Permission->name = 'create.user';
+        $Permission->name = PermissionConstant::CREATE_USER_PERMISSION;
         $Permission->display_name = '新增使用者';
         $Permission->description = '新增使用者';
         $Permission->save();
         $this->CreateUserPermission = $Permission;
 
         $Permission = new Permission();
-        $Permission->name = 'create.article';
+        $Permission->name = PermissionConstant::CREATE_ARTICLE_PERMISSION;
         $Permission->display_name = '新增文章';
         $Permission->description = '新增文章';
         $Permission->save();
         $this->CreateArticlePermission = $Permission;
 
         $Permission = new Permission();
-        $Permission->name = 'read.article';
+        $Permission->name = PermissionConstant::READ_ARTICLE_PERMISSION;
         $Permission->display_name = '閱讀文章';
         $Permission->description = '閱讀文章';
         $Permission->save();
         $this->ReadArticlePermission = $Permission;
 
         $Permission = new Permission();
-        $Permission->name = 'update.article';
+        $Permission->name = PermissionConstant::UPDATE_ARTICLE_PERMISSION;
         $Permission->display_name = '修改文章';
         $Permission->description = '修改文章';
         $Permission->save();
         $this->UpdateArticlePermission = $Permission;
 
         $Permission = new Permission();
-        $Permission->name = 'delete.article';
+        $Permission->name = PermissionConstant::DELETE_ARTICLE_PERMISSION;
         $Permission->display_name = '刪除文章';
         $Permission->description = '刪除文章';
         $Permission->save();
