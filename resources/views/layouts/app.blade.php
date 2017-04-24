@@ -156,10 +156,9 @@
     <!-- /.content-wrapper -->
     <footer class="main-footer">
         <div class="pull-right hidden-xs">
-            <b>Version</b> 2.3.12
+            <b>Version</b> beta
         </div>
-        <strong>Copyright &copy; 2014-2016 <a href="http://almsaeedstudio.com">Almsaeed Studio</a>.</strong> All rights
-        reserved.
+        <strong>Copyright &copy; 2017 <a href="https://www.facebook.com/chiling.lee.75" target="_blank">Abel Lee</a>.</strong> All rights reserved.
     </footer>
 </div>
 <!-- ./wrapper -->
