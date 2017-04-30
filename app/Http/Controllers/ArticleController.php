@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 
 use App\Teach\Article\Service\ArticleService;
+use App\Teach\Article\Support\ArticleStatusSupport;
+use Illuminate\Http\Request;
 
 class ArticleController extends Controller
 {
@@ -16,12 +18,24 @@ class ArticleController extends Controller
 
     public function index()
     {
-        return view('articles.index');
+        $articles = $this->ArticleService->getLatestArticlePagination();
+
+        $binding = [
+            'articles' => $articles,
+        ];
+
+        return view('articles.index', $binding);
     }
 
     public function create()
     {
+        $status_list = ArticleStatusSupport::getArticleStatusMapping();
 
+        $binding = [
+            'mode' => 'create',
+            'statuses' => $status_list,
+        ];
+        return view('articles.edit', $binding);
     }
 
     public function store()
@@ -34,8 +48,17 @@ class ArticleController extends Controller
 
     }
 
-    public function edit()
+    public function edit(Request $request, $article_id)
     {
+        $Article = $this->ArticleService->find($article_id);
+        $status_list = ArticleStatusSupport::getArticleStatusMapping();
+
+        $binding = [
+            'mode' => 'edit',
+            'article' => $Article,
+            'statuses' => $status_list,
+        ];
+        return view('articles.edit', $binding);
 
     }
 

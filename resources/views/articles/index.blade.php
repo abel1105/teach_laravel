@@ -27,60 +27,23 @@
                             <tr>
                                 <th style="width: 10px">#</th>
                                 <th>標題</th>
-                                <th>進度</th>
-                                <th style="width: 40px">標籤</th>
+                                <th style="width: 100px">作者</th>
+                                <th style="width: 40px">狀態</th>
                             </tr>
+                            @foreach($articles as $index => $article)
                             <tr>
-                                <td>1.</td>
-                                <td>Update software</td>
-                                <td>
-                                    <div class="progress progress-xs">
-                                        <div class="progress-bar progress-bar-danger" style="width: 55%"></div>
-                                    </div>
-                                </td>
-                                <td><span class="badge bg-red">55%</span></td>
+                                <td>{{ $index++ }}.</td>
+                                <td><a href="{{ route('articles:edit', $article->id) }}">{{ $article->title }}</a></td>
+                                <td>{{ $article->user->name }}</td>
+                                <td><span class="badge {{ $article->present()->statusColorClass }}">{{ $article->present()->statusName }}</span></td>
                             </tr>
-                            <tr>
-                                <td>2.</td>
-                                <td>Clean database</td>
-                                <td>
-                                    <div class="progress progress-xs">
-                                        <div class="progress-bar progress-bar-yellow" style="width: 70%"></div>
-                                    </div>
-                                </td>
-                                <td><span class="badge bg-yellow">70%</span></td>
-                            </tr>
-                            <tr>
-                                <td>3.</td>
-                                <td>Cron job running</td>
-                                <td>
-                                    <div class="progress progress-xs progress-striped active">
-                                        <div class="progress-bar progress-bar-primary" style="width: 30%"></div>
-                                    </div>
-                                </td>
-                                <td><span class="badge bg-light-blue">30%</span></td>
-                            </tr>
-                            <tr>
-                                <td>4.</td>
-                                <td>Fix and squish bugs</td>
-                                <td>
-                                    <div class="progress progress-xs progress-striped active">
-                                        <div class="progress-bar progress-bar-success" style="width: 90%"></div>
-                                    </div>
-                                </td>
-                                <td><span class="badge bg-green">90%</span></td>
-                            </tr>
+                            @endforeach
                         </table>
                     </div>
                     <!-- /.box-body -->
+
                     <div class="box-footer clearfix text-center">
-                        <ul class="pagination pagination-sm no-margin">
-                            <li><a href="#">&laquo;</a></li>
-                            <li><a href="#">1</a></li>
-                            <li><a href="#">2</a></li>
-                            <li><a href="#">3</a></li>
-                            <li><a href="#">&raquo;</a></li>
-                        </ul>
+                        {{ $articles->render() }}
                     </div>
                 </div>
                 <!-- /.box -->

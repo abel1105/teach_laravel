@@ -5,6 +5,7 @@ namespace App\Teach\Article\Service;
 
 use App\Teach\Article\Repository\ArticleRepository;
 use App\Teach\Core\Service\CoreService;
+use Exception;
 
 class ArticleService extends CoreService
 {
@@ -15,6 +16,20 @@ class ArticleService extends CoreService
     ){
         parent::__construct();
         $this->ArticleRepository = $ArticleRepository;
+    }
+
+    public function getLatestArticlePagination()
+    {
+        return $this->ArticleRepository->fetchLatestCreatedAtArticlePagination();
+    }
+
+    public function find($article_id)
+    {
+        try {
+            return $this->ArticleRepository->find($article_id);
+        } catch (Exception $exception) {
+            throw $exception;
+        }
     }
 
 

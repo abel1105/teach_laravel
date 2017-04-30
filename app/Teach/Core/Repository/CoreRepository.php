@@ -9,7 +9,5 @@ class CoreRepository
 {
     public function __construct()
     {
-        // Debug SQL 指令
-        DB::enableQueryLog();
     }
 }
