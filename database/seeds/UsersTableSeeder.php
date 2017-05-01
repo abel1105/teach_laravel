@@ -18,10 +18,11 @@ class UsersTableSeeder extends \Illuminate\Database\Seeder
     protected $EditorRole;
 
     protected $CreateUserPermission;
-    protected $CreateArticlePermission;
-    protected $ReadArticlePermission;
-    protected $UpdateArticlePermission;
+//    protected $CreateArticlePermission;
+//    protected $ReadArticlePermission;
+//    protected $UpdateArticlePermission;
     protected $DeleteArticlePermission;
+    protected $PublishArticlePermission;
 
     public function run()
     {
@@ -90,26 +91,26 @@ class UsersTableSeeder extends \Illuminate\Database\Seeder
         $Permission->save();
         $this->CreateUserPermission = $Permission;
 
-        $Permission = new Permission();
-        $Permission->name = PermissionConstant::CREATE_ARTICLE_PERMISSION;
-        $Permission->display_name = '新增文章';
-        $Permission->description = '新增文章';
-        $Permission->save();
-        $this->CreateArticlePermission = $Permission;
-
-        $Permission = new Permission();
-        $Permission->name = PermissionConstant::READ_ARTICLE_PERMISSION;
-        $Permission->display_name = '閱讀文章';
-        $Permission->description = '閱讀文章';
-        $Permission->save();
-        $this->ReadArticlePermission = $Permission;
-
-        $Permission = new Permission();
-        $Permission->name = PermissionConstant::UPDATE_ARTICLE_PERMISSION;
-        $Permission->display_name = '修改文章';
-        $Permission->description = '修改文章';
-        $Permission->save();
-        $this->UpdateArticlePermission = $Permission;
+//        $Permission = new Permission();
+//        $Permission->name = PermissionConstant::CREATE_ARTICLE_PERMISSION;
+//        $Permission->display_name = '新增文章';
+//        $Permission->description = '新增文章';
+//        $Permission->save();
+//        $this->CreateArticlePermission = $Permission;
+//
+//        $Permission = new Permission();
+//        $Permission->name = PermissionConstant::READ_ARTICLE_PERMISSION;
+//        $Permission->display_name = '閱讀文章';
+//        $Permission->description = '閱讀文章';
+//        $Permission->save();
+//        $this->ReadArticlePermission = $Permission;
+//
+//        $Permission = new Permission();
+//        $Permission->name = PermissionConstant::UPDATE_ARTICLE_PERMISSION;
+//        $Permission->display_name = '修改文章';
+//        $Permission->description = '修改文章';
+//        $Permission->save();
+//        $this->UpdateArticlePermission = $Permission;
 
         $Permission = new Permission();
         $Permission->name = PermissionConstant::DELETE_ARTICLE_PERMISSION;
@@ -117,25 +118,34 @@ class UsersTableSeeder extends \Illuminate\Database\Seeder
         $Permission->description = '刪除文章';
         $Permission->save();
         $this->DeleteArticlePermission = $Permission;
+
+        $Permission = new Permission();
+        $Permission->name = PermissionConstant::PUBLISH_ARTICLE_PERMISSION;
+        $Permission->display_name = '發布文章';
+        $Permission->description = '發布文章';
+        $Permission->save();
+        $this->PublishArticlePermission = $Permission;
     }
 
     protected function addRolePermission()
     {
         $this->AdminRole->attachPermission($this->CreateUserPermission);
-        $this->AdminRole->attachPermission($this->CreateArticlePermission);
-        $this->AdminRole->attachPermission($this->ReadArticlePermission);
-        $this->AdminRole->attachPermission($this->UpdateArticlePermission);
+//        $this->AdminRole->attachPermission($this->CreateArticlePermission);
+//        $this->AdminRole->attachPermission($this->ReadArticlePermission);
+//        $this->AdminRole->attachPermission($this->UpdateArticlePermission);
         $this->AdminRole->attachPermission($this->DeleteArticlePermission);
+        $this->AdminRole->attachPermission($this->PublishArticlePermission);
 
-        $this->AuthorRole->attachPermission($this->CreateArticlePermission);
-        $this->AuthorRole->attachPermission($this->ReadArticlePermission);
-        $this->AuthorRole->attachPermission($this->UpdateArticlePermission);
+//        $this->AuthorRole->attachPermission($this->CreateArticlePermission);
+//        $this->AuthorRole->attachPermission($this->ReadArticlePermission);
+//        $this->AuthorRole->attachPermission($this->UpdateArticlePermission);
+//        $this->AdminRole->attachPermission($this->PublishArticlePermission);
 
-        $this->EditorRole->attachPermission($this->CreateArticlePermission);
-        $this->EditorRole->attachPermission($this->ReadArticlePermission);
-        $this->EditorRole->attachPermission($this->UpdateArticlePermission);
+//        $this->EditorRole->attachPermission($this->CreateArticlePermission);
+//        $this->EditorRole->attachPermission($this->ReadArticlePermission);
+//        $this->EditorRole->attachPermission($this->UpdateArticlePermission);
         $this->EditorRole->attachPermission($this->DeleteArticlePermission);
-
+        $this->EditorRole->attachPermission($this->PublishArticlePermission);
     }
 
     protected function addUserRole()
