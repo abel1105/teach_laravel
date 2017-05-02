@@ -16,7 +16,7 @@ class Article extends Model
     protected $table = 'articles';
 
     protected $fillable = [
-        'title', 'content', 'status', 'published_at'
+        'title', 'content', 'status', 'published_at', 'user_id'
     ];
 
     protected $dates = [

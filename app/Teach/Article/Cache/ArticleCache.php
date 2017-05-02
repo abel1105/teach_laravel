@@ -4,9 +4,9 @@ namespace App\Teach\Article\Cache;
 
 
 use App\Teach\Article\Constant\ArticleConstant;
-use App\Teach\Core\Manager\CacheManager;
+use App\Teach\Core\Manager\AbstractCacheManager;
 
-class ArticleCache extends CacheManager
+class ArticleCache extends AbstractCacheManager
 {
 
     public function getArticleCacheKey($article_id)

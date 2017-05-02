@@ -9,6 +9,12 @@ use Exception;
 class ArticleStatusSupport
 {
 
+    const ARTICLE_STATUS_CODE_LIST_STRING = ArticleConstant::ARTICLE_STATUS_DRAFT_CODE . "," .
+                                            ArticleConstant::ARTICLE_STATUS_NEED_CHECK_CODE . "," .
+                                            ArticleConstant::ARTICLE_STATUS_SCHEDULE_CODE . "," .
+                                            ArticleConstant::ARTICLE_STATUS_PUBLISH_CODE . "," .
+                                            ArticleConstant::ARTICLE_STATUS_CLOSE_CODE ;
+
     public static function getArticleStatusMapping() {
         return [
             ArticleConstant::ARTICLE_STATUS_DRAFT_CODE => ArticleConstant::ARTICLE_STATUS_DRAFT_NAME,
