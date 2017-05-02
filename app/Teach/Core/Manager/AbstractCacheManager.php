@@ -6,7 +6,7 @@ use Auth;
 use Cache;
 use Exception;
 
-abstract class CacheManager
+abstract class AbstractCacheManager
 {
     protected $repo;
 
