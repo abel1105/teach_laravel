@@ -7,6 +7,12 @@ use App\Teach\Article\Presenter\ArticlePresenter;
 use Illuminate\Database\Eloquent\Model;
 use Laracasts\Presenter\PresentableTrait;
 
+/**
+ * App\Teach\Article\Entity\Article
+ *
+ * @property-read \App\Teach\User\Entity\User $user
+ * @mixin \Eloquent
+ */
 class Article extends Model
 {
     use PresentableTrait;
