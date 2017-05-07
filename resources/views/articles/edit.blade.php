@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
-@section('content')
+
+@section('content-header')
     <!-- Content Header (Page header) -->
     <section class="content-header">
         <h1>
@@ -12,7 +13,9 @@
             <li class="active">@if($mode == 'edit') 編輯文章 @else 新增文章 @endif</li>
         </ol>
     </section>
+@endsection
 
+@section('content')
     <!-- Main content -->
     <section class="content">
         <div class="row">

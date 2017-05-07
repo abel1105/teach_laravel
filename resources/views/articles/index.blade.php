@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('content')
+@section('content-header')
     <!-- Content Header (Page header) -->
     <section class="content-header">
         <h1>
@@ -12,7 +12,9 @@
             <li class="active">文章列表</li>
         </ol>
     </section>
+@endsection
 
+@section('content')
     <!-- Main content -->
     <section class="content">
         <div class="row">

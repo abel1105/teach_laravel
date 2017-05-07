@@ -151,6 +151,10 @@
 
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
+        @yield('content-header')
+        {{-- 警告 --}}
+        @include('partial.info-box')
+        {{-- 內容 --}}
         @yield('content')
     </div>
     <!-- /.content-wrapper -->
