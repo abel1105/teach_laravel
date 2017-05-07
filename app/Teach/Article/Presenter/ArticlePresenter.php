@@ -5,9 +5,9 @@ namespace App\Teach\Article\Presenter;
 
 use App\Teach\Article\Constant\ArticleConstant;
 use App\Teach\Article\Support\ArticleStatusSupport;
-use Laracasts\Presenter\Presenter;
+use App\Teach\Core\Presenter\CorePresenter;
 
-class ArticlePresenter extends Presenter
+class ArticlePresenter extends CorePresenter
 {
     public function statusName()
     {
