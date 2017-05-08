@@ -20,6 +20,16 @@ class ArticleRepository extends CoreRepository
         $this->cache = new ArticleCache($this);
     }
 
+    /**
+     * 取得文章
+     * @param       $article_id
+     *
+     * @return      \Illuminate\Database\Eloquent\Collection|\Illuminate\Database\Eloquent\Model
+     *
+     * @access      public
+     * @author      Abel            abel@thenewslnes.com
+     * @date        2017-05-08
+     */
     public function find($article_id)
     {
         $cache_key = $this->cache->getArticleCacheKey($article_id);
@@ -36,6 +46,14 @@ class ArticleRepository extends CoreRepository
         return $Article;
     }
 
+    /**
+     * 取得最新創建的文章集
+     * @return      \Illuminate\Contracts\Pagination\LengthAwarePaginator
+     *
+     * @access      public
+     * @author      Abel            abel@thenewslnes.com
+     * @date        2017-05-08
+     */
     public function fetchLatestCreatedAtArticlePagination()
     {
 
@@ -44,6 +62,40 @@ class ArticleRepository extends CoreRepository
             ->paginate('3');
 
         return $ArticlePagination;
+    }
+
+    /**
+     * 更新文章
+     * @param $article_id
+     * @param $article_data
+     *
+     * @return      \Illuminate\Database\Eloquent\Collection|\Illuminate\Database\Eloquent\Model
+     *
+     * @access      public
+     * @author      Abel            abel@thenewslnes.com
+     * @date        2017-05-08
+     */
+    public function update($article_id, $article_data)
+    {
+        $Article = $this->find($article_id);
+        $Article->update($article_data);
+        return $Article;
+    }
+
+    /**
+     * 新增文章
+     * @param $article_data
+     *
+     * @return      \Illuminate\Database\Eloquent\Model
+     *
+     * @access      public
+     * @author      Abel            abel@thenewslnes.com
+     * @date        2017-05-08
+     */
+    public function store($article_data)
+    {
+        $Article = $this->Article->create($article_data);
+        return $Article;
     }
 
 }
