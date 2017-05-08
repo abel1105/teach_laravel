@@ -33,28 +33,28 @@
                         <div class="box-body">
                             <!-- text input -->
                             <div class="form-group">
-                                <label>標題</label>
-                                <input name="title" type="text" class="form-control" placeholder="請輸入標題" value="{{ $article->title or '' }}">
+                                <label>{{ trans('validation.attributes.title') }}</label>
+                                <input name="title" type="text" class="form-control" placeholder="{{ trans('article.placeholder.title') }}" value="{{ isset($article) ? $article->present()->input('title') : old('title') }}">
                             </div>
                             <!-- select -->
                             <div class="form-group row">
                                 <div class="col-xs-4">
-                                    <label>狀態</label>
+                                    <label>{{ trans('validation.attributes.status') }}</label>
                                     <select name="status" class="form-control">
                                         @foreach($statuses as $status_code => $status_name)
-                                            <option value="{{ $status_code }}" {{ $mode == 'edit' && $status_code == $article->status ? 'selected' : '' }}>{{ $status_name }}</option>
+                                            <option value="{{ $status_code }}" {{ $mode == 'edit' ? $article->present()->select('status', $status_code) : (old('status') === $status_code ? 'selected' : '') }}>{{ $status_name }}</option>
                                         @endforeach
                                     </select>
                                 </div>
                                 <div class="col-xs-4">
-                                    <label>發布時間</label>
-                                    <input type="text" name="published_at" class="form-control" placeholder="請輸入發布時間" value="{{ $article->published_at or '' }}">
+                                    <label>{{ trans('validation.attributes.published_at') }}</label>
+                                    <input type="text" name="published_at" class="form-control" placeholder="{{ trans('article.placeholder.published_at') }}" value="{{ isset($article) ? $article->present()->input('published_at') : old('published_at') }}">
                                 </div>
                             </div>
                             <!-- textarea -->
                             <div class="form-group">
-                                <label>內容</label>
-                                <textarea name="content" class="form-control" rows="5" placeholder="請輸入內容">{{ $article->content or '' }}</textarea>
+                                <label>{{ trans('validation.attributes.content') }}</label>
+                                <textarea name="content" class="form-control" rows="5" placeholder="{{ trans('article.placeholder.content') }}">{{ isset($article) ? $article->present()->input('content') : old('content') }}</textarea>
                             </div>
                         </div>
                         <!-- /.box-body -->

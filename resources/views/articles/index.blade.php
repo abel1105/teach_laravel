@@ -34,7 +34,7 @@
                             </tr>
                             @foreach($articles as $index => $article)
                             <tr>
-                                <td>{{ $index++ }}.</td>
+                                <td>{{ $index+1 }}.</td>
                                 <td><a href="{{ route('articles:edit', $article->id) }}">{{ $article->title }}</a></td>
                                 <td>{{ $article->user->name }}</td>
                                 <td><span class="badge {{ $article->present()->statusColorClass }}">{{ $article->present()->statusName }}</span></td>
